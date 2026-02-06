@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>SNES9x Web</title>
+    <style>
+        body {
+            background: #000;
+            color: white;
+            text-align: center;
+            font-family: Arial;
+        }
+        canvas {
+            border: 2px solid #fff;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>SNES9x Web – Juego SNES</h2>
+
+<canvas id="canvas" width="512" height="448"></canvas>
+
+<script>
+    var Module = {
+        canvas: document.getElementById("canvas"),
+        arguments: ["roms/tmt4.sfc"]
+    };
+</script>
+
+<script src="snes9x.js"></script>
+
+</body>
+</html>
