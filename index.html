@@ -3,35 +3,28 @@
 <head>
 <meta charset="utf-8">
 <title>SNES</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h2>SNES Emulator</h2>
-
-<!-- BOTONES DE JUEGOS -->
-<button onclick="loadGame('roms/tmt4.sfc')">Tortugas ninjas </button>
-
-<br><br>
-
-<div style="width:640px;height:480px">
-  <div id="game"></div>
+<h1>SNES Emulator JS</h1>
+<center>
+<div style="width:640px;height:480px;max-width:100%">
+<div id="game"></div>
 </div>
+</center>
 
-<script>
-function loadGame(rom) {
-    document.getElementById("game").innerHTML = "";
+<script type="text/javascript">
+    EJS_player = '#game';
+    EJS_gameUrl = 'roms/tmt4.sfc'; // Url to Game rom
+    EJS_core = 'snes';
+    EJS_mouse = false; // SNES Mouse
+    EJS_multitap = false; // SNES Multitap
+  
 
-    window.EJS_player = "#game";
-    window.EJS_gameUrl = rom;
-    window.EJS_core = "snes";
-
-    // Recargar el emulador
-    let script = document.createElement("script");
-    script.src = "https://www.emulatorjs.com/loader.js";
-    document.body.appendChild(script);
-}
+    
 </script>
+<script src="https://www.emulatorjs.com/loader.js"></script>
 
 </body>
 </html>
