@@ -1,40 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Emulador NES con JSNES</title>
+<meta charset="utf-8">
+<title>SNES</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<center>
+<h1>SNES Emulator JS - Andrés Avendaño</h1>
+<h1>Tortugas Ninjas 4</h1>
+</center>
+<center>
+<div style="width:640px;height:480px;max-width:100%">
+<div id="game"></div>
+</div>
+</center>
 
-<canvas id="screen" width="256" height="240"></canvas>
-<input type="file" id="rom" accept=".nes">
+<script type="text/javascript">
+    EJS_player = '#game';
+    EJS_gameUrl = 'roms/Super Mario.sfc'; // Url to Game rom
+    EJS_core = 'snes';
+    EJS_mouse = false; // SNES Mouse
+    EJS_multitap = false; // SNES Multitap
+  
 
-<script src="https://unpkg.com/jsnes/dist/jsnes.min.js"></script>
-
-<script>
-  const canvas = document.getElementById("screen");
-  const ctx = canvas.getContext("2d");
-
-  const nes = new jsnes.NES({
-    onFrame: frameBuffer => {
-      const img = ctx.createImageData(256, 240);
-      for (let i = 0; i < frameBuffer.length; i++) {
-        const pixel = frameBuffer[i];
-        img.data[i * 4 + 0] = (pixel >> 16) & 0xFF;
-        img.data[i * 4 + 1] = (pixel >> 8) & 0xFF;
-        img.data[i * 4 + 2] = pixel & 0xFF;
-        img.data[i * 4 + 3] = 255;
-      }
-      ctx.putImageData(img, 0, 0);
-    }
-  });
-
-  document.getElementById("rom").addEventListener("change", e => {
-    const reader = new FileReader();
-    reader.onload = () => nes.loadROM(reader.result);
-    reader.readAsBinaryString(e.target.files[0]);
-  });
+    
 </script>
+<script src="https://www.emulatorjs.com/loader.js"></script>
 
 </body>
 </html>
+
+
+
+
+
